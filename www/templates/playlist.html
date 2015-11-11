@@ -1,0 +1,42 @@
+<ion-view view-title="{{titleOfList}}">
+
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">{{list_id}} test</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list" class="item-button-right">
+            <div class="item item-button-right" collection-repeat="item in current_list">
+                <i class="icon ion-checkmark-round" ng-show="item.completed"></i>
+                {{item.name}}
+                <div class="buttons">
+                    <button class="button button-positive" ng-click="markItemDone($index, list_id, true)" ng-hide="item.completed">
+                        <i class="icon ion-checkmark-round"></i>
+                    </button>
+                    <button class="button button-positive" ng-click="removeItem($index, list_id)">
+                        <i class="icon ion-close-round"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <form  name="addNewItemForm" ng-submit="addItemForList(list_id)">
+            <div class="form-group">
+                
+                <label class="item item-input">
+                <input type="text" class="form-control" placeholder="Enter item name" ng-model="newItem.name" required>
+                    
+                      </label>
+                
+                
+                
+                
+            </div>
+            <button type="submit" class="button button-block button-positive" ng-disabled="addNewItemForm.$invalid">Submit</button>
+        </form>     
+    </ion-content>
+    
+    
+    <div class="bar bar-footer bar-balanced">
+  <div class="footer" >Footer</div>
+</div>
+</ion-view>
